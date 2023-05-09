@@ -1,0 +1,20 @@
+
+git
+{
+kitty
+git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes
+ln -s ./kitty-themes/themes/Afterglow.conf ~/.config/kitty/theme.conf
+}
+nitrogen
+curl
+stow
+polybar
+nvim and vim # install from git nvim
+(good file manager)
+
+lm-sensors install
+ sudo apt install rofi
+ curl -sS https://starship.rs/install.sh | sh
+  # color picer sudo apt instll gpick
+  picom
+  fzf # install from full
