@@ -10,7 +10,7 @@ apt install kitty
 git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes
 #select theme and change name Afterglow to you convinient
 ln -s ./kitty-themes/themes/Afterglow.conf ~/.config/kitty/theme.conf
-echo ./theme.conf >> kitty.conf
+echo "include ./theme.conf" >> kitty.conf
 echo "Nitrogen for wallpaper piker"
 apt install nitrogen -y
 apt install curl -y
@@ -27,8 +27,8 @@ echo "If you feel you dont need it make it  comented "
 echo "or remove after this script"
 apt instll gpick
 #  curl -sS https://starship.rs/install.sh | sh
-  # color picer sudo apt instll gpick
+# color picer sudo apt instll gpick
 #  picom
- # fzf # install from full
- # nvim and vim # install from git nvim
+# fzf # install from full
+# nvim and vim # install from git nvim
 #(good file manager)
