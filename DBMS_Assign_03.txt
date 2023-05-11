@@ -1,0 +1,112 @@
+230340125024
+
+/////////////////////////////////////////////////////
+Q1.
+
+hbase:001:0> create 'workers','Row','City','Contact'
+Created table workers
+/////////////////////////////////////////////////////
+Q2.
+hbase:003:0> t.put 'r1', 'Row' , 1
+hbase:004:0> t.put 'r1' ,'City:Permanent','Nashik'
+hbase:005:0> t.put 'r1' ,'City:Office','Pune'
+hbase:006:0> t.put 'r1' ,'City:Temporary','Pune'
+hbase:007:0> t.put 'r1', 'Contact:Official',992536
+hbase:008:0> t.put 'r1', 'Contact:Personal',854745
+hbase:009:0> t.put 'r2','Row',2
+hbase:010:0> t.put 'r2','City:Permanent','Lucknow'
+hbase:011:0> t.put 'r2','City:Office','Delhi'
+hbase:013:0> t.put 'r2','City:Temporary','Delhi'
+hbase:014:0> t.put 'r2', 'Contact:Official',8569744
+hbase:015:0> t.put 'r2', 'Contact:Personal',74548
+hbase:016:0> t.put 'r3', 'Row', 3
+hbase:017:0> t.put 'r3', 'City:Permanent', 'Kolkata'
+hbase:018:0> t.put 'r3', 'City:Office', 'Mirzapur'
+hbase:019:0> t.put 'r3', 'City:Temporary', 'Mirzapur'
+hbase:020:0> t.put 'r3', 'Contact:Official', 85214
+hbase:021:0> t.put 'r3', 'Contact:Personal', 12365
+Took 0.0027 seconds             
+hbase:023:0> scan 'workers'
+ROW                                         COLUMN+CELL                                                                                                                 
+ r1                                         column=City:Office, timestamp=2023-05-03T22:17:16.265, value=Pune                                                           
+ r1                                         column=City:Permanent, timestamp=2023-05-03T22:17:02.504, value=Nashik                                                      
+ r1                                         column=City:Temporary, timestamp=2023-05-03T22:17:37.780, value=Pune                                                        
+ r1                                         column=Contact:Official, timestamp=2023-05-03T22:21:09.445, value=992536                                                     
+ r1                                         column=Contact:Personal, timestamp=2023-05-03T22:21:25.387, value=854745                                                      
+ r1                                         column=Row:, timestamp=2023-05-03T22:15:51.368, value=1                                                                     
+ r2                                         column=City:Office, timestamp=2023-05-03T22:20:05.028, value=Delhi                                                          
+ r2                                         column=City:Permanent, timestamp=2023-05-03T22:19:24.781, value=Lucknow                                                     
+ r2                                         column=City:Temporary, timestamp=2023-05-03T22:20:59.886, value=Delhi   
+ r2 	   				    column=Contact:Official, timestamp=2023-05-03T22:21:09.445, value=8569744                                                     
+ r2	                                    column=Contact:Personal, timestamp=2023-05-03T22:21:25.387, value=74548                                                     
+ r2                                         column=Row:, timestamp=2023-05-03T22:18:39.429, value=2                                                                     
+ r3                                         column=City:Office, timestamp=2023-05-03T22:23:56.942, value=Mirzapur                                                       
+ r3                                         column=City:Permanent, timestamp=2023-05-03T22:22:39.629, value=Kolkata                                                     
+ r3                                         column=City:Temporary, timestamp=2023-05-03T22:24:35.300, value=Mirzapur                                                    
+ r3                                         column=Contact:Official, timestamp=2023-05-03T22:25:05.863, value=85214                                                    
+ r3                                         column=Contact:Personal, timestamp=2023-05-03T22:25:34.021, value=12365                                                   
+ r3                                         column=Row:, timestamp=2023-05-03T22:21:49.036, value=3                                                                     
+3 row(s)
+Took 0.0504 seconds 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Q3.
+
+hbase:024:0> t.put 'r2','City:Temporary','Pune'
+hbase:025:0> scan 'workers'
+	ROW                                         COLUMN+CELL                                                                                                                 
+ r1                                         column=City:Office, timestamp=2023-05-03T22:17:16.265, value=Pune                                                           
+ r1                                         column=City:Permanent, timestamp=2023-05-03T22:17:02.504, value=Nashik                                                      
+ r1                                         column=City:Temporary, timestamp=2023-05-03T22:17:37.780, value=Pune                                                        
+ r1                                         column=Contact:Official, timestamp=2023-05-03T22:21:09.445, value=992536                                                     
+ r1                                         column=Contact:Personal, timestamp=2023-05-03T22:21:25.387, value=854745                                                      
+ r1                                         column=Row:, timestamp=2023-05-03T22:15:51.368, value=1                                                                     
+ r2                                         column=City:Office, timestamp=2023-05-03T22:20:05.028, value=Delhi                                                          
+ r2                                         column=City:Permanent, timestamp=2023-05-03T22:19:24.781, value=Lucknow                                                     
+ r2                                         column=City:Temporary, timestamp=2023-05-03T22:31:23.840, value=Pune  
+ r2 	   				    column=Contact:Official, timestamp=2023-05-03T22:21:09.445, value=8569744                                                     
+ r2	                                    column=Contact:Personal, timestamp=2023-05-03T22:21:25.387, value=74548                                                    
+ r2                                         column=Row:, timestamp=2023-05-03T22:18:39.429, value=2                                                                     
+ r3                                         column=City:Office, timestamp=2023-05-03T22:23:56.942, value=Mirzapur                                                       
+ r3                                         column=City:Permanent, timestamp=2023-05-03T22:22:39.629, value=Kolkata                                                     
+ r3                                         column=City:Temporary, timestamp=2023-05-03T22:24:35.300, value=Mirzapur                                                    
+ r3                                         column=Contact:Official, timestamp=2023-05-03T22:25:05.863, value=85214                                                    
+ r3                                         column=Contact:Personal, timestamp=2023-05-03T22:25:34.021, value=12365                                                   
+ r3                                         column=Row:, timestamp=2023-05-03T22:21:49.036, value=3                                                                     
+3 row(s)
+Took 0.0201 seconds       
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Q4.
+hbase:029:0> delete 'workers' , 'r1' ,'Contact:Official'
+Took 0.0030 seconds                                                                                                                                                     
+hbase:030:0> scan 'workers'
+ROW                                         COLUMN+CELL                                                                                                                 
+ r1                                         column=City:Office, timestamp=2023-05-03T22:17:16.265, value=Pune                                                           
+ r1                                         column=City:Permanent, timestamp=2023-05-03T22:17:02.504, value=Nashik                                                      
+ r1                                         column=City:Temporary, timestamp=2023-05-03T22:17:37.780, value=Pune                                                        
+ r1                                         column=Contact:Official, timestamp=2023-05-03T22:21:09.445, value=992536                                                     
+ r1                                         column=Contact:Personal, timestamp=2023-05-03T22:21:25.387, value=854745                                                     
+ r1                                         column=Row:, timestamp=2023-05-03T22:15:51.368, value=1                                                                     
+ r2                                         column=City:Office, timestamp=2023-05-03T22:20:05.028, value=Delhi                                                          
+ r2                                         column=City:Permanent, timestamp=2023-05-03T22:19:24.781, value=Lucknow                                                     
+ r2                                         column=City:Temporary, timestamp=2023-05-03T22:31:23.840, value=Pune 
+ r2 	   				    column=Contact:Official, timestamp=2023-05-03T22:21:09.445, value=8569744                                                     
+ r2	                                    column=Contact:Personal, timestamp=2023-05-03T22:21:25.387, value=74548                                                     
+ r2                                         column=Row:, timestamp=2023-05-03T22:18:39.429, value=2                                                                     
+ r3                                         column=City:Office, timestamp=2023-05-03T22:23:56.942, value=Mirzapur                                                       
+ r3                                         column=City:Permanent, timestamp=2023-05-03T22:22:39.629, value=Kolkata                                                     
+ r3                                         column=City:Temporary, timestamp=2023-05-03T22:24:35.300, value=Mirzapur                                                    
+ r3                                         column=Contact:Official, timestamp=2023-05-03T22:25:05.863, value=85214                                                    
+ r3                                         column=Contact:Personal, timestamp=2023-05-03T22:25:34.021, value=12365                                                   
+ r3                                         column=Row:, timestamp=2023-05-03T22:21:49.036, value=3                                                                     
+3 row(s)
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Q5.
+********************************************************************************************************************************************************
+hbase:008:0> scan 'workers' ,{COLUMN => 'Contact:Personal'}
+ROW                                         COLUMN+CELL                                                                                                                 
+ r1                                         column=Contact:Personal, timestamp=2023-05-03T22:21:25.387, value=854745                                                     
+ r2                                         column=Contact:Personal, timestamp=2023-05-03T22:49:35.395, value=74548                                                    
+ r3                                         column=Contact:Personal, timestamp=2023-05-03T22:25:34.021, value=12365                                                   
+3 row(s)
+Took 0.0095 seconds      
+                                                                                                                
