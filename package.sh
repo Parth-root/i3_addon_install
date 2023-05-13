@@ -11,6 +11,31 @@ git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/
 #select theme and change name Afterglow to you convinient
 ln -s ./kitty-themes/themes/Afterglow.conf ~/.config/kitty/theme.conf
 echo "include ./theme.conf" >> kitty.conf
+
+while true;do
+	read -p "Do you want to install this (y/n)" yn
+
+	case $yn in 
+	[yY] ) echo ok,instaling ;
+	
+	break;;
+	[nN] ) echo no;
+	exit;;
+	*) echo invalid;;
+	esac
+
+done
+echo exit
+
+echo "Do you wish to install this program?"
+select yn in "Yes" "No"; do
+    case $yn in
+		y)
+        Y ) echo test; break;;
+		n)
+        N) echo in no exit;;
+    esac
+done
 echo "Nitrogen for wallpaper piker"
 apt install nitrogen -y
 apt install curl -y
