@@ -4,6 +4,7 @@
 apt update -y
 apt upgrade -y
 apt install kitty
+apt install curl -y
 #to skip install themes comment below code
 #mkdir git
 #cd git
@@ -11,34 +12,9 @@ git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/
 #select theme and change name Afterglow to you convinient
 ln -s ./kitty-themes/themes/Afterglow.conf ~/.config/kitty/theme.conf
 echo "include ./theme.conf" >> kitty.conf
-
-while true;do
-	read -p "Do you want to install this (y/n)" yn
-
-	case $yn in 
-	[yY] ) echo ok,instaling ;
-	
-	break;;
-	[nN] ) echo no;
-	exit;;
-	*) echo invalid;;
-	esac
-
-done
-echo exit
-
-echo "Do you wish to install this program?"
-select yn in "Y" "N" "y" "n"; do
-    case $yn in
-		y )
-        Y ) echo test; break;;
-		n )
-        N ) echo in no exit;;
-    esac
-done
 echo "Nitrogen for wallpaper piker"
 apt install nitrogen -y
-apt install curl -y
+
 echo "stow to restore file"
 apt install stow -y
 echo "polybar for bar on upper side in i3"
