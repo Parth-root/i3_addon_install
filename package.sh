@@ -28,12 +28,12 @@ done
 echo exit
 
 echo "Do you wish to install this program?"
-select yn in "Yes" "No"; do
+select yn in "Y" "N" "y" "n"; do
     case $yn in
-		y)
+		y )
         Y ) echo test; break;;
-		n)
-        N) echo in no exit;;
+		n )
+        N ) echo in no exit;;
     esac
 done
 echo "Nitrogen for wallpaper piker"
